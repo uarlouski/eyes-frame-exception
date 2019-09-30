@@ -7,8 +7,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import com.applitools.eyes.Region;
 import com.applitools.eyes.StdoutLogHandler;
 import com.applitools.eyes.selenium.Eyes;
+import com.applitools.eyes.selenium.fluent.Target;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -20,7 +22,7 @@ public class App
         {
             wd.get("http://www.meteo.psu.edu/~jyh10/classes/meteo473/basic-frames.html");
             wd.switchTo().frame((WebElement) wd.findElement(By.xpath("/html/frameset/frame[3]")));
-            eyes.checkElement((WebElement) wd.findElement(By.xpath("/html/body/font/p[1]")));
+            eyes.check("", Target.region(Region.EMPTY));
         });
     }
 
